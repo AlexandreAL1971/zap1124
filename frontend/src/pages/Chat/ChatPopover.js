@@ -111,6 +111,21 @@ export default function ChatPopover() {
   const [play] = useSound(notifySound);
   const soundAlertRef = useRef();
 
+  function sendNotification(title, body, icon, url) {
+    if (navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage({
+        type: 'SHOW_NOTIFICATION',
+        payload: {
+          title,
+          body,
+          icon,
+          url,
+        },
+      });
+    }
+  }
+  
+  
   useEffect(() => {
     soundAlertRef.current = play;
 
@@ -144,6 +159,13 @@ export default function ChatPopover() {
         dispatch({ type: "CHANGE_CHAT", payload: data });
         const userIds = data.newMessage.chat.users.map(userObj => userObj.userId);
 
+        sendNotification(
+          'Nova Mensagem!',
+          'texto da mensagem',
+          '',
+          '' // URL para redirecionamento ao clicar na notificação
+        );
+
         if (userIds.includes(user.id) && data.newMessage.senderId !== user.id) {
           soundAlertRef.current();
         }
@@ -152,6 +174,14 @@ export default function ChatPopover() {
         dispatch({ type: "CHANGE_CHAT", payload: data });
       }
     });
+
+
+
+
+
+
+
+
     return () => {
       socket.disconnect();
     };
