@@ -17,11 +17,14 @@ import { i18n } from "../../translate/i18n";
 
 import { AuthContext } from "../../context/Auth/AuthContext";
 
-import wave from '../../assets/wave.png'
-import bg from '../../assets/movie.mp4'
+//import wave from '../../assets/wave.png'
+//import bg from '../../assets/movie.mp4'
 
 // import avatar from '../../assets/avatar.svg'
-import logo from '../../assets/logo1.png';
+import logo from '../../assets/logo.png';
+import barra from '../../assets/barrac.png';
+import { socketConnection } from "../../services/socket";
+
 
 const Login = () => {
     const [user, setUser] = useState({ email: "", password: "" });
@@ -42,12 +45,12 @@ const Login = () => {
         <>
             {/* <img className="wave" src={wave} /> */}
             <div style={{ display: 'flex', height: '100vh' }}>
-                <div style={{ flex: '0 0 70%', position: 'relative' }}>
+                {/*<div style={{ flex: '0 0 70%', position: 'relative' }}>
                     <video autoPlay loop muted style={{ width: '100%', height: '100%', objectFit: 'cover' }}>
                         <source src={bg} type="video/mp4" />
                     </video>
-                </div>
-                <div className="login-content" style={{ flex: '0 0 30%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                </div>*/}
+                <div className="login-content" style={{ flex: '0 0 100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <img src={logo} alt={logo} style={{ width: '200%', height: "50%", maxWidth: '300px', marginBottom: 20 }} />
                         <form noValidate onSubmit={handlSubmit} style={{ display: "grid", maxWidth: '80%' }}>
@@ -104,6 +107,8 @@ const Login = () => {
                             </Grid>
 
                             <input type="submit" className="btn" value="Acessar" />
+
+                            <img src={barra} alt={'empresas_grupo'} style={{ width: '100%', height: "50%", maxWidth: '300px', marginBottom: 20 }} />
                         </form>
                     </div>
                 </div>

@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
-    backgroundColor: "#FFF",
+    backgroundColor: "#00A9E0",
     backgroundSize: "cover",
     padding: "0 8px",
     minHeight: "48px",
@@ -240,7 +240,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
   const [userModalOpen, setUserModalOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { handleLogout, loading } = useContext(AuthContext);
+  const {handleLogout, loading } = useContext(AuthContext);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerVariant, setDrawerVariant] = useState("permanent");
   // const [dueDate, setDueDate] = useState("");
@@ -449,7 +449,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
         open={drawerOpen}
       >
         <div className={classes.toolbarIcon}>
-          <img src={logo} style={{ display: "block", margin: "0 auto", height: "50px", width: "100%" }} alt="logo" />
+          <img src={logo} style={{ display: "block", margin: "3 auto", height: "50px", width: "100%" }} alt="logo" />
           <IconButton onClick={() => setDrawerOpen(!drawerOpen)}>
             <ChevronLeftIcon />
           </IconButton>
@@ -501,7 +501,7 @@ const LoggedInLayout = ({ children, themeToggle }) => {
           </Typography>
 
           {/* DESABILITADO POIS TEM BUGS */}
-          { <UserLanguageSelector /> }
+          {/* <UserLanguageSelector /> */ }
           {/* <SoftPhone
             callVolume={33} //Set Default callVolume
             ringVolume={44} //Set Default ringVolume
@@ -518,10 +518,10 @@ const LoggedInLayout = ({ children, themeToggle }) => {
             {theme.mode === 'dark' ? <Brightness7Icon style={{ color: "white" }} /> : <Brightness4Icon style={{ color: "white" }} />}
           </IconButton>
 
-          <NotificationsVolume
+          {/* <NotificationsVolume
             setVolume={setVolume}
             volume={volume}
-          />
+          /> */}
 
           <IconButton
             onClick={handleRefreshPage}
